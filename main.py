@@ -81,18 +81,16 @@ class Board:
                             min_move = not_tabu[k]
                             min_conflict = self.heuristic(not_tabu[k][0], not_tabu[k][1])
 
-                    tabu_list[self.queens[new_queen].row][self.queens[new_queen].col] = iter + (self.n + 10)
+                    tabu_list[self.queens[new_queen].row][self.queens[new_queen].col] = iter + self.n
                     self.board[self.queens[new_queen].row][self.queens[new_queen].col] = 0
                     self.board[min_move[0]][self.queens[new_queen].col] = 1
                     self.queens[new_queen].row = min_move[0]
                     self.heuristic_manager()
                 iter += 1
-        # if x == 200: # Max Tabu (constant)
-        #     print("LIMIT")
         return
 
 if __name__ == "__main__":
-    n = 4
+    n = 8
     if n < 4:
         print('Number of queens needs to be above 4')
         exit(0)
@@ -106,5 +104,4 @@ if __name__ == "__main__":
         for j in range(len(board.board)):
             print(board.board[i][j], " ", end="")
         print()
-    print()
-    print("Execution Time: {:.6f} seconds".format(end_time))
+    print("Wall Time: {:.6f} seconds".format(end_time))
