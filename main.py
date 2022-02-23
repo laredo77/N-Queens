@@ -62,7 +62,7 @@ class Board:
                 self.has_conflicts = True
                 return
 
-    def solver(self):
+    def tabuSearch(self):
         tabu_list = [[0 for _ in range(len(self.board))] for _ in range(len(self.board))]
         iter = 0
         while self.has_conflicts:
@@ -77,10 +77,9 @@ class Board:
                     min_move = not_tabu[0]
                     min_conflict = self.heuristic(not_tabu[0][0], not_tabu[0][1])
                     for k in range(len(not_tabu)):
-                        current_conflict = self.heuristic(not_tabu[k][0], not_tabu[k][1])
-                        if min_conflict >= current_conflict:
+                        if min_conflict >= self.heuristic(not_tabu[k][0], not_tabu[k][1]):
                             min_move = not_tabu[k]
-                            min_conflict = current_conflict
+                            min_conflict = self.heuristic(not_tabu[k][0], not_tabu[k][1])
 
                     tabu_list[self.queens[new_queen].row][self.queens[new_queen].col] = iter + (self.n + 10)
                     self.board[self.queens[new_queen].row][self.queens[new_queen].col] = 0
@@ -92,7 +91,6 @@ class Board:
         #     print("LIMIT")
         return
 
-
 if __name__ == "__main__":
     n = 4
     if n < 4:
@@ -101,7 +99,7 @@ if __name__ == "__main__":
 
     start_time = time.time()
     board = Board(n)
-    board.solver()
+    board.tabuSearch()
     end_time = time.time() - start_time
 
     for i in range(len(board.board)):
