@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # MAIN CLASS
 import argparse
 from print_board import printBoard
