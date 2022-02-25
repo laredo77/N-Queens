@@ -14,7 +14,7 @@ def simulated_annealing(problem, schedule=exp_schedule()):
         T = schedule(t)
         if T == 0 or problem.goal_test(current):
             return current
-        neighbour = problem.randomNearState(current)
+        neighbour = problem.get_random_neighbor(current)
         if not neighbour:
             return current
         new_h = problem.heuristic(neighbour)

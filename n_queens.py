@@ -16,11 +16,11 @@ class SearchProblem:
     def heuristic(self, state):
         pass
 
-    def nearStates(self, state):
+    def get_neighbors(self, state):
         pass
 
-    def randomNearState(self, state):
-        return choice(self.nearStates(state))
+    def get_random_neighbor(self, state):
+        return choice(self.get_neighbors(state))
 
 
 class NQueensSearch(SearchProblem):
@@ -54,7 +54,7 @@ class NQueensSearch(SearchProblem):
                 h += count[key] * (count[key] - 1) / 2
         return -h
 
-    def nearStates(self, state):
+    def get_neighbors(self, state):
         near_states = []
         for row in range(self.N):
             for col in range(self.N):

@@ -1,4 +1,3 @@
-import random
 
 
 def tabu_search(problem):
@@ -8,8 +7,8 @@ def tabu_search(problem):
     max_tabu_size = 300
     while not problem.goal_test(opt):
 
-        current_neighborhood = problem.nearStates(current)
-        current = problem.randomNearState(current)
+        current_neighborhood = problem.get_neighbors(current)
+        current = problem.get_random_neighbor(current)
         for neighbor in current_neighborhood:
             if neighbor == current:
                 continue

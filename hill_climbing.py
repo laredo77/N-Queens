@@ -4,7 +4,7 @@ from random import shuffle
 def hill_climbing(problem):
     current = problem.initial()
     while True:
-        neighbours = problem.nearStates(current)
+        neighbours = problem.get_neighbors(current)
         if not neighbours:
             break
         # shuffle(neighbours)
