@@ -9,11 +9,11 @@ from n_queens import NQueensSearch
 from random import choice
 
 
-def print_board(result, param):
-    if not result:
+def print_board(iterations_results, param):
+    if not iterations_results:
         print([None])
-    if param == 0 and result:
-        r = choice(result)
+    if param == 0 and iterations_results:
+        r = choice(iterations_results)
         # print r
         board = []
         for col in r:
@@ -27,7 +27,7 @@ def print_board(result, param):
     else:
         # print result
         board = []
-        for r in result:
+        for r in iterations_results:
             for c in r:
                 line = ['0'] * len(r)
                 line[c] = '1'
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     # Parametros
     desc = "N-queens problem solver by using local search algorithms.\n\t Default arguments: -n=8 ; -i=10 ; --all=0"
     parser = argparse.ArgumentParser(description=desc)
-    parser.add_argument("-n", type=int, default=8, help="Size of the board")
+    parser.add_argument("-n", type=int, default=4, help="Size of the board")
     parser.add_argument("-i", type=int, default=10, help="Number of iterations")
     parser.add_argument("--all", type=int, dest='all', action='store',
                         choices=range(0, 2), default=0,

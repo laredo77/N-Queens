@@ -7,10 +7,10 @@ class SearchProblem:
     def __init__(self, initial=None):
         pass
 
-    def initial(self):
+    def initial_state(self):
         pass
 
-    def goal_test(self, state):
+    def is_goal_state(self, state):
         pass
 
     def heuristic(self, state):
@@ -28,10 +28,10 @@ class NQueensSearch(SearchProblem):
     def __init__(self, N):
         self.N = N
 
-    def initial(self):
-        return list(randrange(self.N) for i in range(self.N))
+    def initial_state(self):
+        return list(randrange(self.N) for _ in range(self.N))
 
-    def goal_test(self, state):
+    def is_goal_state(self, state):
         a, b, c = (set() for i in range(3))
         for row, col in enumerate(state):
             if col in a or row - col in b or row + col in c:

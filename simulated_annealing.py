@@ -8,11 +8,11 @@ def exp_schedule(k=4, alpha=0.001, limit=20000):
 
 
 def simulated_annealing(problem, schedule=exp_schedule()):
-    current = problem.initial()
+    current = problem.initial_state()
     current_h = problem.heuristic(current)
     for t in range(sys.maxsize):
         T = schedule(t)
-        if T == 0 or problem.goal_test(current):
+        if T == 0 or problem.is_goal_state(current):
             return current
         neighbour = problem.get_random_neighbor(current)
         if not neighbour:

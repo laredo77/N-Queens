@@ -1,11 +1,11 @@
 
 
 def tabu_search(problem):
-    opt = problem.initial()
-    current = problem.initial()
-    tabu_list = [problem.initial()]
+    opt = problem.initial_state()
+    current = problem.initial_state()
+    tabu_list = [problem.initial_state()]
     max_tabu_size = 300
-    while not problem.goal_test(opt):
+    while not problem.is_goal_state(opt):
 
         current_neighborhood = problem.get_neighbors(current)
         current = problem.get_random_neighbor(current)
