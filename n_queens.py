@@ -42,7 +42,7 @@ class NQueensSearch(SearchProblem):
         return True
 
     def heuristic(self, state):
-        a, b, c = [Counter() for i in range(3)]
+        a, b, c = [Counter() for _ in range(3)]
 
         for row, col in enumerate(state):
             a[col] += 1
