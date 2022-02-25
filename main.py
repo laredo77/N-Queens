@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MAIN CLASS
 import argparse
 from print_board import printBoard
@@ -20,7 +21,6 @@ if __name__ == "__main__":
                         help="0 = show one solution | 1 = show all solutions")
     args = parser.parse_args()
 
-    # Inicia a busca
     test = localSearch()
     problem = NQueensSearch(args.n)
     algorithms = [tabu_search, hill_climbing, random_restart, simulated_annealing]
