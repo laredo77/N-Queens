@@ -1,5 +1,7 @@
 # MAIN CLASS
 import argparse
+import sys
+
 from local_search import local_search
 from hill_climbing import hill_climbing
 from hill_climbing import random_restart
@@ -8,6 +10,7 @@ from tabu_search import tabu_search
 from n_queens import NQueensSearch
 from random import choice
 from stats_and_plots import generate_graphs
+import os
 
 
 def print_board(iterations_results, param):
@@ -56,18 +59,18 @@ def run_algorithms_and_show_boards(board_size_n, iterations_num, is_print_all, )
 
 
 if __name__ == "__main__":
-    desc = "N-queens problem solver by using local search algorithms.\n\t Default arguments: -n=8 ; -i=10 ; --all=0"
-    parser = argparse.ArgumentParser(description=desc)
-    parser.add_argument("-n", type=int, default=8, help="Size of the board")
-    parser.add_argument("-i", type=int, default=10, help="Number of iterations")
-    parser.add_argument("--all", type=int, dest='all', action='store',
-                        choices=range(0, 2), default=0,
-                        help="0 = show one solution | 1 = show all solutions")
-    args = parser.parse_args()
-
-    n = args.n
     algorithms = [tabu_search, hill_climbing, random_restart, simulated_annealing]
     names = ["Tabu Search", "Hill Climbing", "HC Random Restart", "Simulated Annealing"]
 
-    generate_graphs(algorithms, names)
-    #run_algorithms_and_show_boards(n, args.i, args.all)
+    if sys.argv[1] == 1:
+        n = sys.argv[2]
+        iterations_num = abs(int(sys.argv[3]))
+        is_print_all_boards = int(sys.argv[4])
+        if (n < 1 or n == 2 or n == 3) or is_print_all_boards not in [0, 1]:
+            raise "Please provide the correct arguments"
+
+        run_algorithms_and_show_boards(n, iterations_num, is_print_all_boards)
+    elif sys.argv[1] == 0:
+        generate_graphs(algorithms, names)
+    else:
+        raise "Please provide the correct arguments"
