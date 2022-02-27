@@ -16,9 +16,9 @@ def generate_graphs(algorithms, algorithm_names):
 
     generate_time_and_iterations_num_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names)
 
-    generate_time_and_board_size_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names, )
-    generate_accuracy_and_board_size_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names)
-    generate_avg_accuracy_historgram(algo_and_names_zip, algorithm_names, colors)
+    # generate_time_and_board_size_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names, )
+    # generate_accuracy_and_board_size_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names)
+    # generate_avg_accuracy_historgram(algo_and_names_zip, algorithm_names, colors)
 
 
 def generate_avg_accuracy_historgram(algo_and_names_zip, algorithm_names, colors, ):
@@ -81,7 +81,7 @@ def generate_time_and_board_size_graph(algo_and_colors_zip, algo_and_names_zip, 
 
 def generate_time_and_iterations_num_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names,
                                            ):
-    iterations_numbers = [10, 20, 50, 100, 200, 300]
+    iterations_numbers = [10 * i for i in range(1, 26)]
     times_dic_by_alg = {algorithm_name: [] for algorithm_name in algorithm_names}
     for iterations_num in iterations_numbers:
         problem = NQueensSearch(DEFAULT_BOARD_SIZE)

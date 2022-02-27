@@ -29,11 +29,14 @@ class NQueensSearch(SearchProblem):
         self.N = N
 
     def initial_state(self):
+        # generate list of n numbers from 0 to n, each cell index represents the number of row, and each value list[i]
+        # represents the column of a queen
         return list(randrange(self.N) for _ in range(self.N))
 
     def is_goal_state(self, state):
         a, b, c = (set() for i in range(3))
         for row, col in enumerate(state):
+            # On any conflict row, col or diag - return that this is not the goal state
             if col in a or row - col in b or row + col in c:
                 return False
             a.add(col)
