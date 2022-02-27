@@ -2,8 +2,10 @@ import random
 import math
 import sys
 
+
 def exp_schedule(k=4, alpha=0.001, limit=20000):
     return lambda t: (k * math.exp(-alpha * t) if t < limit else 0)
+
 
 def simulated_annealing(problem, schedule=exp_schedule()):
     current = problem.initial_state()

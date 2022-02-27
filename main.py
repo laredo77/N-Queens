@@ -7,6 +7,8 @@ from simulated_annealing import simulated_annealing
 from tabu_search import tabu_search
 from n_queens import NQueensSearch
 from random import choice
+from stats_and_plots import generate_graphs
+
 
 def print_board(iterations_results, param):
     if not iterations_results:
@@ -41,9 +43,19 @@ def print_board(iterations_results, param):
     print("\n")
 
 
-if __name__ == "__main__":
+def run_algorithms_and_show_boards(board_size_n, iterations_num, is_print_all, ):
+    problem = NQueensSearch(board_size_n)
+    problems = [problem, problem, problem, problem]
+    print("Initial board state:")
+    print_board([problem.initial_state()], False)
+    for i in range(len(algorithms)):
+        print(names[i])
+        result_boards, _, _ = local_search(problems[i], algorithms[i], iterations_num, )
 
-    # Parametros
+        print_board(result_boards, is_print_all)
+
+
+if __name__ == "__main__":
     desc = "N-queens problem solver by using local search algorithms.\n\t Default arguments: -n=8 ; -i=10 ; --all=0"
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument("-n", type=int, default=8, help="Size of the board")
@@ -53,26 +65,9 @@ if __name__ == "__main__":
                         help="0 = show one solution | 1 = show all solutions")
     args = parser.parse_args()
 
-    problem = NQueensSearch(args.n)
+    n = args.n
     algorithms = [tabu_search, hill_climbing, random_restart, simulated_annealing]
-    names = ["tabu search", "hill_climbing", "hc_random_restart", "simulated_annealing"]
-    problems = [problem, problem, problem, problem]
-    for i in range(len(algorithms)):
-        print(names[i])
-        result_board = local_search(problems[i], algorithms[i], args.i)
+    names = ["Tabu Search", "Hill Climbing", "HC Random Restart", "Simulated Annealing"]
 
-        print_board(result_board, args.all)
-
-    from numpy import *
-    import math
-    import matplotlib.pyplot as plt
-
-    plt.ylabel('Time')
-    plt.xlabel('Iterations')
-    plt.plot([10, 20, 50, 100, 300], [0.031288, 0.062527, 0.140625, 0.281419, 1.027290], 'b', label="Hill Climbing")  # hill climbing
-    plt.plot([10, 20, 50, 100, 300], [0.171873, 0.343752, 0.781250, 1.609555, 4.590965], 'r', label="HC: Random Restart")  # random restart
-    plt.plot([10, 20, 50, 100, 300], [0.796877, 1.546849, 3.750945, 7.440810, 25.083687], 'g', label="Simulated Annealing")  # simulated annealing
-    plt.plot([10, 20, 50, 100, 300], [0.213661, 0.328295, 1.094073, 1.855818, 5.860037], 'black', label="Tabu Search")  # tabu search
-    plt.title('N-Queens Algorithms Compersion')
-    plt.legend()
-    plt.savefig('./graph.png')
+    # generate_graphs(algorithms, names)
+    run_algorithms_and_show_boards(n, args.i, args.all)

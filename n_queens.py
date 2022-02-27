@@ -2,6 +2,7 @@ from random import choice
 from collections import Counter
 from random import randrange
 
+
 class SearchProblem:
     def __init__(self, initial=None):
         pass

@@ -1,5 +1,6 @@
 from random import shuffle
 
+
 def hill_climbing(problem):
     current = problem.initial_state()
     while True:
@@ -12,6 +13,7 @@ def hill_climbing(problem):
             break
         current = neighbour
     return current
+
 
 # HC com random restart
 def random_restart(problem, limit=10):
