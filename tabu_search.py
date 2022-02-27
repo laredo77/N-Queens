@@ -1,5 +1,4 @@
-
-
+# Amit Twito, Itamar Laredo
 def tabu_search(problem):
     opt = problem.initial_state()
     current = problem.initial_state()
@@ -14,7 +13,6 @@ def tabu_search(problem):
                 continue
             if neighbor not in tabu_list and problem.heuristic(neighbor) > problem.heuristic(current):
                 current = neighbor
-
         if problem.heuristic(current) > problem.heuristic(opt):
             opt = current
 

@@ -1,6 +1,5 @@
 from time import time
 
-
 def local_search(problem, search_type, n_iterations):
     cnt = 0
     start = time()
