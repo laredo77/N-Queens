@@ -1,7 +1,7 @@
 # MAIN CLASS
 import sys
 
-from local_search import local_search
+from run_algorithm import run_algorithm_on_problem_by_iter_number
 from hill_climbing import hill_climbing
 from hill_climbing import random_restart
 from simulated_annealing import simulated_annealing
@@ -51,7 +51,7 @@ def run_algorithms_and_show_boards(board_size_n, iterations_num, is_print_all, )
     print_board([problem.initial_state()], False)
     for i in range(len(algorithms)):
         print(names[i])
-        result_boards, _, _ = local_search(problems[i], algorithms[i], iterations_num, )
+        result_boards, _, _ = run_algorithm_on_problem_by_iter_number(problems[i], algorithms[i], iterations_num, )
 
         print_board(result_boards, is_print_all)
 

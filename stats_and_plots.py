@@ -1,7 +1,7 @@
 from numpy import *
 import math
 import matplotlib.pyplot as plt
-from local_search import local_search
+from run_algorithm import run_algorithm_on_problem_by_iter_number
 from n_queens import NQueensSearch
 import plotly.express as px
 
@@ -29,8 +29,8 @@ def generate_avg_accuracy_historgram(algo_and_names_zip, algorithm_names, colors
         problem = NQueensSearch(DEFAULT_BOARD_SIZE)
         problems = [problem, problem, problem, problem]
         for i, (algorithm, algorithm_name) in enumerate(algo_and_names_zip):
-            _, hit_rate, _ = local_search(problem=problems[i], search_type=algorithm,
-                                          n_iterations=local_search_iters, )
+            _, hit_rate, _ = run_algorithm_on_problem_by_iter_number(problem=problems[i], search_type=algorithm,
+                                                                     n_iterations=local_search_iters, )
             hit_rates_dic_by_alg[algorithm_name].append(hit_rate)
     for alg in algorithm_names:
         avg = sum(hit_rates_dic_by_alg[alg]) / iters
@@ -47,8 +47,8 @@ def generate_accuracy_and_board_size_graph(algo_and_colors_zip, algo_and_names_z
         problem = NQueensSearch(board_size)
         problems = [problem, problem, problem, problem]
         for i, (algorithm, algorithm_name) in enumerate(algo_and_names_zip):
-            _, hit_rate, _ = local_search(problem=problems[i], search_type=algorithm,
-                                          n_iterations=DEFAULT_ITER_NUM, )
+            _, hit_rate, _ = run_algorithm_on_problem_by_iter_number(problem=problems[i], search_type=algorithm,
+                                                                     n_iterations=DEFAULT_ITER_NUM, )
             hit_rate_dic_by_alg[algorithm_name].append(hit_rate)
     for alg, color in algo_and_colors_zip:
         plt.plot(board_sizes, hit_rate_dic_by_alg[alg], color, label=alg)
@@ -67,7 +67,8 @@ def generate_time_and_board_size_graph(algo_and_colors_zip, algo_and_names_zip, 
         problem = NQueensSearch(board_size)
         problems = [problem, problem, problem, problem]
         for i, (algorithm, algorithm_name) in enumerate(algo_and_names_zip):
-            _, _, time = local_search(problem=problems[i], search_type=algorithm, n_iterations=DEFAULT_ITER_NUM, )
+            _, _, time = run_algorithm_on_problem_by_iter_number(problem=problems[i], search_type=algorithm,
+                                                                 n_iterations=DEFAULT_ITER_NUM, )
             times_dic_by_alg[algorithm_name].append(time)
     for alg, color in algo_and_colors_zip:
         plt.plot(board_sizes, times_dic_by_alg[alg], color, label=alg)
@@ -87,7 +88,8 @@ def generate_time_and_iterations_num_graph(algo_and_colors_zip, algo_and_names_z
         problem = NQueensSearch(DEFAULT_BOARD_SIZE)
         problems = [problem, problem, problem, problem]
         for i, (algorithm, algorithm_name) in enumerate(algo_and_names_zip):
-            _, _, time = local_search(problem=problems[i], search_type=algorithm, n_iterations=iterations_num)
+            _, _, time = run_algorithm_on_problem_by_iter_number(problem=problems[i], search_type=algorithm,
+                                                                 n_iterations=iterations_num)
             times_dic_by_alg[algorithm_name].append(time)
     for alg, color in algo_and_colors_zip:
         plt.plot(iterations_numbers, times_dic_by_alg[alg], color, label=alg)
