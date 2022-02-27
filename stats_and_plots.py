@@ -15,10 +15,9 @@ def generate_graphs(algorithms, algorithm_names):
     algo_and_colors_zip = list(zip(algorithm_names, colors))
 
     generate_time_and_iterations_num_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names)
-
-    # generate_time_and_board_size_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names, )
-    # generate_accuracy_and_board_size_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names)
-    # generate_avg_accuracy_historgram(algo_and_names_zip, algorithm_names, colors)
+    generate_time_and_board_size_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names, )
+    generate_accuracy_and_board_size_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names)
+    generate_avg_accuracy_historgram(algo_and_names_zip, algorithm_names, colors)
 
 
 def generate_avg_accuracy_historgram(algo_and_names_zip, algorithm_names, colors, ):
