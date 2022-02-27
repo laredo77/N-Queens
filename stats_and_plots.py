@@ -23,13 +23,14 @@ def generate_graphs(algorithms, algorithm_names):
 def generate_avg_accuracy_historgram(algo_and_names_zip, algorithm_names, colors, ):
     avgs = []
     hit_rates_dic_by_alg = {algorithm_name: [] for algorithm_name in algorithm_names}
-    iters = 10
+    iters = 100
+    local_search_iters = 20
     for _ in range(iters):
         problem = NQueensSearch(DEFAULT_BOARD_SIZE)
         problems = [problem, problem, problem, problem]
         for i, (algorithm, algorithm_name) in enumerate(algo_and_names_zip):
             _, hit_rate, _ = local_search(problem=problems[i], search_type=algorithm,
-                                          n_iterations=DEFAULT_ITER_NUM, )
+                                          n_iterations=local_search_iters, )
             hit_rates_dic_by_alg[algorithm_name].append(hit_rate)
     for alg in algorithm_names:
         avg = sum(hit_rates_dic_by_alg[alg]) / iters
