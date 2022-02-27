@@ -70,4 +70,4 @@ if __name__ == "__main__":
     names = ["Tabu Search", "Hill Climbing", "HC Random Restart", "Simulated Annealing"]
 
     generate_graphs(algorithms, names)
-    # run_algorithms_and_show_boards(n, args.i, args.all)
+    #run_algorithms_and_show_boards(n, args.i, args.all)
