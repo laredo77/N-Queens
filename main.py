@@ -1,5 +1,4 @@
 # MAIN CLASS
-import argparse
 import sys
 
 from local_search import local_search
@@ -10,7 +9,6 @@ from tabu_search import tabu_search
 from n_queens import NQueensSearch
 from random import choice
 from stats_and_plots import generate_graphs
-import os
 
 
 def print_board(iterations_results, param):
@@ -25,8 +23,8 @@ def print_board(iterations_results, param):
             line[col] = '1'
             board.append(str().join(line))
 
-        charlist = map(list, board)
-        for line in charlist:
+        char_list = map(list, board)
+        for line in char_list:
             print(" ".join(line))
     else:
         # print result
@@ -37,12 +35,12 @@ def print_board(iterations_results, param):
                 line[c] = '1'
                 board.append(str().join(line))
 
-        charlist = map(list, board)
-        for i in range(0, len(charlist)):
-            if i % len(charlist[i]) == 0:
+        char_list = map(list, board)
+        for i in range(0, len(char_list)):
+            if i % len(char_list[i]) == 0:
                 print("\n")
 
-            print(" ".join(charlist[i]))
+            print(" ".join(char_list[i]))
     print("\n")
 
 
@@ -62,15 +60,15 @@ if __name__ == "__main__":
     algorithms = [tabu_search, hill_climbing, random_restart, simulated_annealing]
     names = ["Tabu Search", "Hill Climbing", "HC Random Restart", "Simulated Annealing"]
 
-    if sys.argv[1] == 1:
-        n = sys.argv[2]
+    if sys.argv[1] == '1':
+        n = int(sys.argv[2])
         iterations_num = abs(int(sys.argv[3]))
         is_print_all_boards = int(sys.argv[4])
         if (n < 1 or n == 2 or n == 3) or is_print_all_boards not in [0, 1]:
             raise "Please provide the correct arguments"
 
         run_algorithms_and_show_boards(n, iterations_num, is_print_all_boards)
-    elif sys.argv[1] == 0:
+    elif sys.argv[1] == '0':
         generate_graphs(algorithms, names)
     else:
         raise "Please provide the correct arguments"
