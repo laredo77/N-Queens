@@ -21,7 +21,7 @@ Install plotly: `pip install plotly`
 
 To run the program, please open the application and follow the steps below:
 1. Through your terminal, run the main class: `python main.py <is_run_local_search> <number of queens> <number_of_iterations> <is_print_all_boards>`
-2. <is_run_local_search> If you want to run local search for all the algorithms and print the board with the results. If you desire for graph put '0'. otherwise '1'.
+2. <is_run_local_search> If you want to run local search for all the algorithms and print the board with the results. If you desire to disply graphs put '0'. otherwise '1'.
 3. <number of queens> The number of queues affects the different algorithms both in terms of runtime and in terms of space usage.
   Select the amount of queens you want to run in this argument. Remember, for N=1 there is a naive solution.
   For N=2 or N=3 there is no solution. Therefore select N>=4.
@@ -36,7 +36,7 @@ To run the program, please open the application and follow the steps below:
 * Hill Climbing Random Restart  
 * Simulated Annealing  
 * N-Queens  
-* Mmain
+* Main
 * Run_algorithm
 * Stats_and_plots
 
