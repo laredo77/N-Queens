@@ -15,7 +15,6 @@ The test applyed on the problem of arranging N-Queens, but the algorithm can wor
 
 Install plotly: `pip install plotly`
 
-
 ### Usage
 
 To run the program, please open the application and follow the steps below:
@@ -43,6 +42,6 @@ To run the program, please open the application and follow the steps below:
   
 In this project we examined the efficiency of the tabu search algorithm for the problem of N-Queens.
 The Tabu Search code was written by Amit Twito and Itamar Laredo.
-In purpose of comparing the algorithm to the different algorithms mentioned in the course, we used code from the following GitHub:
+In purpose of comparing the Tabu Search algorithm to the different algorithms mentioned in the course, we used code from the following GitHub:
 https://github.com/vitorverasm/ai-nqueens
 The project was written as part of a project in Introduction to Optimization course, Bar-Ilan University.
