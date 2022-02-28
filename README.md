@@ -6,10 +6,12 @@ Program for applying a tabu search algorithm on N-Queens Problem.
 
 ### Description
 
-Taboo Search is a local search algorithm that uses a tabו list to prevent the development of previously developed steps.
+Tabu Search is a local search algorithm that uses a tabu list to prevent the development of previously developed steps.
 This program tests the efficiency of the algorithm in terms of time and quality of solution against common local search algorithms
 such as Hill Climbing, Random Restart and Simulated Annealing.
 The test applyed on the problem of arranging N-Queens, but the algorithm can work on many other problems from the field of optimization.
+
+![times_and_iterations_graph](https://user-images.githubusercontent.com/60240620/155981841-0f1e6806-12e0-4a85-95e0-6a5cde54123e.png)
 
 ### Installation
 
