@@ -2,7 +2,7 @@
 
 Program for applying a tabu search algorithm on N-Queens Problem.
 
-![8-Queens]
+![8-Queens](https://camo.githubusercontent.com/c5cfe4d6754fc02929fe16e8dd0368bd1cc9aaf960c9ab3258a893cd42e63abc/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f3931342f312a53564350326c4970316a667a4a75516e5f51556556672e706e67)
 
 ### Description
 
