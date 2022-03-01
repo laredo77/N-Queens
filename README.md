@@ -21,7 +21,7 @@ Install plotly: `pip install plotly`
 
 To run the program, please open the application and follow the steps below:
 1. Through your terminal, run the main class: `python main.py <is_run_algorithm> <number of queens> <number_of_iterations> <is_print_all_boards>`
-2. <is_run_algorithm> If you want to run the function under run_algorithm.py for all the algorithms and print the board with the results.
+2. <is_run_algorithm> 0 or 1, If you want to run the function under run_algorithm.py for all the algorithms and print the board with the results.
 3. <number of queens> The number of queues affects the different algorithms both in terms of runtime and in terms of space usage.
   Select the amount of queens you want to run in this argument. Remember, for N=1 there is a naive solution.
   For N=2 or N=3 there is no solution. Therefore select N>=4.
