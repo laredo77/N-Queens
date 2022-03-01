@@ -27,12 +27,13 @@ To run the program, please open the application and follow the steps below:
   For N=2 or N=3 there is no solution. Therefore select N>=4.
 4. <number_of_iterations> Select a sufficient amount of iterations for the algorithm to get more accurate results and more reliable statistics.
 5. <is_print_all_boards> Whether to print all the boards of all the iterations for each algorithm (if <is_run_algorithm> is 1) - 1 or 0. If 0 - will choose one random solution for printing.
-Example:
-`python main.py 1 8 10 0`
-This will run all algorithms for 10 itertaions each with 8 queens, it wont print all boards results.
-Example:
-`python main.py 0`
-This will generate graphs.
+
+  Example:
+  `python main.py 1 8 10 0`
+  This will run all algorithms for 10 itertaions each with 8 queens, it wont print all boards results.
+  Example:
+  `python main.py 0`
+  This will generate graphs.
   
 ### Dictionary
  
