@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from run_algorithm import run_algorithm_on_problem_by_iter_number
 from n_queens import NQueensSearch
 import plotly.express as px
+from time import sleep
 
 DEFAULT_BOARD_SIZE = 8
 DEFAULT_ITER_NUM = 10
@@ -14,10 +15,27 @@ def generate_graphs(algorithms, algorithm_names):
     algo_and_names_zip = list(zip(algorithms, algorithm_names))
     algo_and_colors_zip = list(zip(algorithm_names, colors))
 
+    print('Generating graphs, located under ./graphs')
+    sleep(0.7)
+
+    print('Generating graphs/times_and_iterations_graph.png')
     generate_time_by_iterations_num_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names)
+    print('Finished generating graphs/times_and_iterations_graph.png')
+    sleep(2)
+
+    print('Generating graphs/times_and_queens_num_graph.png')
     generate_time_by_queens_number_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names, )
+    print('Finished generating graphs/times_and_queens_num_graph.png')
+    sleep(2)
+
+    print('Generating accuracy_and_queens_num_graph.png')
     generate_accuracy_by_queens_number_graph(algo_and_colors_zip, algo_and_names_zip, algorithm_names)
+    print('Finished generating accuracy_and_queens_num_graph.png')
+    sleep(2)
+
+    print('Generating accuracy_avg_by_alg')
     generate_avg_accuracy_historgram(algo_and_names_zip, algorithm_names, colors)
+    print('Finished generating times_and_iterations_graph - your browser will be opened')
 
 
 def generate_avg_accuracy_historgram(algo_and_names_zip, algorithm_names, colors, ):

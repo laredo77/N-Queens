@@ -24,6 +24,8 @@ def tabu_search(problem):
 
         # add the current state to the tabu list
         tabu_list.append(current)
+
+        # TTL
         if len(tabu_list) > max_tabu_size:
             tabu_list.pop(0)
     return opt
