@@ -66,7 +66,7 @@ if __name__ == "__main__":
         is_print_all_boards = int(sys.argv[4])
         if (n < 1 or n == 2 or n == 3) or is_print_all_boards not in [0, 1]:
             raise "Please provide the correct arguments"
-
+        print('Running all algorithms')
         run_algorithms_and_show_boards(n, iterations_num, is_print_all_boards)
     elif sys.argv[1] == '0':
         generate_graphs(algorithms, names)
